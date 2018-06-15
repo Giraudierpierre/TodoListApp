@@ -35,4 +35,23 @@ angular.module('starter.controllers')
             //Send promise to controller
             return deferred.promise;
         };
+        
+        scope.postTask = function() {
+            var deferred = $q.defer();
+
+            var data = null;
+
+            //Request get all tasks
+            $http.post(url + '/task', data, {headers: {'Content-Type': 'application/json'}})
+                .success(function(data) {
+
+                    //If valid datas
+                    if (data) deferred.resolve(data);
+
+                    //If no valid datas
+                    else deferred.reject(data);
+                });
+            //Send promise to controller
+            return deferred.promise;
+        };
     });

@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-    .controller('ToDoListCtrl', function ($scope, todoList) {
+    .controller('ToDoListCtrl', function($scope, todoList, $http) {
 
         $scope.listCanSwipe = true;
         //Get all tasks
@@ -13,7 +13,6 @@ angular.module('starter.controllers')
                 $scope.tasks = data;
             }, function() {
                 //Error
-                $scope.tasks = 'Erreur';
             });
         };
 
@@ -27,7 +26,30 @@ angular.module('starter.controllers')
                 $scope.completedTasksNumber = data.length;
             }, function() {
                 //Error
-                $scope.completedTasks = 'Erreur';
             });
         };
+
+        $scope.createTask = function() {
+            $http.get("templates/task_widget.html").then(function(widget) {
+                var task = document.createElement("ion-item");
+                task.setAttribute('class', 'item item-complex item-right-editable');
+                task.innerHTML = (widget.data).trim();
+                var taskList = document.getElementById('taskList').children;
+                taskList[0].appendChild(task);
+
+                postTask();
+            });
+        };
+
+        function postTask() {
+
+            var promise = todoList.postTask();
+
+            promise.then(function(data) {
+                //Success
+                console.log(data);
+            }, function() {
+                //Error
+            });
+        }
     });

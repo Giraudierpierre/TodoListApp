@@ -1,6 +1,12 @@
 <ion-view view-title="Tâches" ng-init="getTasks(); getCompletedTasks();">
     <ion-content>
-        <ion-list ng-controller="ToDoListCtrl" can-swipe="listCanSwipe">
+        <ion-list ng-controller="ToDoListCtrl" can-swipe="listCanSwipe" id="taskList">
+            <a class="item-icon-right" ng-click="createTask();">
+                <ion-item class="item-positive">
+                    Notes
+                    <i class="icon ion-ios-plus"></i>
+                </ion-item>
+            </a>
             <ion-item ng-repeat="task in tasks">
                 <label class="item-input item-select">
                     <input type="text" value="{{task.content}}"></input>
@@ -10,15 +16,17 @@
                         <option>Red</option>
                     </select>
                 </label>
-                <ion-option-button class="button-positive" ng-click="share(item)"> Vers terminé</ion-option-button>
+                <ion-option-button class="button-positive" ng-click="share(item)">Vers terminé</ion-option-button>
             </ion-item>
         </ion-list>
 
         <ion-list>
-            <ion-item>
-                <span class="badge badge-stable">{{completedTasksNumber}}</span>
-                Terminées
-            </ion-item>
+            <a class="item-icon-right" href="#">
+                <ion-item class="item-balanced">
+                    <span class="badge badge-stable">{{completedTasksNumber}}</span>
+                    Terminées
+                </ion-item>
+            </a>
             <ion-item ng-repeat="task in completedTasks">
                 <label class="item-input item-select">
                     <input type="text" value="{{task.content}}"></input>
@@ -28,7 +36,7 @@
                         <option>Red</option>
                     </select>
                 </label>
-                <ion-option-button class="button-positive" ng-click="share(item)"> Vers liste</ion-option-button>
+                <ion-option-button class="button-positive" ng-click="share(item)">Vers liste</ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>
