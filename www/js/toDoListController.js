@@ -2,6 +2,7 @@ angular.module('starter.controllers')
 
     .controller('ToDoListCtrl', function ($scope, todoList) {
 
+        $scope.listCanSwipe = true;
         //Get all tasks
         $scope.getTasks = function() {
 
