@@ -47,9 +47,15 @@ angular.module('starter.controllers')
 
             promise.then(function(data) {
                 //Success
-                console.log(data);
             }, function() {
                 //Error
             });
+        }
+
+        $scope.getTaskContent = function(taskContent) {
+
+            var data = {
+                'content': taskContent,
+            }
         }
     });

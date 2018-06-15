@@ -9,7 +9,7 @@
             </a>
             <ion-item ng-repeat="task in tasks">
                 <label class="item-input item-select">
-                    <input type="text" value="{{task.content}}"></input>
+                    <input type="text" value="{{task.content}}" ng-blur="getTaskContent(task.content)" ng-model="task.content"/>
                     <select>
                         <option>Blue</option>
                         <option selected>Green</option>
@@ -29,7 +29,7 @@
             </a>
             <ion-item ng-repeat="task in completedTasks">
                 <label class="item-input item-select">
-                    <input type="text" value="{{task.content}}"></input>
+                    <input type="text" value="{{task.content}}" ng-blur="getTaskContent()"/>
                     <select>
                         <option>Blue</option>
                         <option selected>Green</option>
