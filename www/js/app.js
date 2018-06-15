@@ -31,24 +31,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 templateUrl: 'templates/menu.html',
                 controller: 'AppCtrl'
             })
-            .state('app.playlists', {
-                url: '/playlists',
+            .state('app.todoList', {
+                url: '/todoList',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/todoList.html',
-                        controller: 'PlaylistsCtrl'
+                        controller: 'ToDoListCtrl'
                     }
                 }
             })
-            .state('app.single', {
-                url: '/playlists/:playlistId',
+            .state('app.task', {
+                url: '/todoList/:task',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/task.html',
-                        controller: 'PlaylistCtrl'
+                        templateUrl: 'templates/task.html'
                     }
                 }
             });
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/playlists');
+        $urlRouterProvider.otherwise('/app/todoList');
     });
