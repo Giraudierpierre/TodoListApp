@@ -1,1 +1,5 @@
-/* Empty. Add your own CSS if you like */
+.badge.badge-stable {
+    border-radius: 100%;
+    right: auto;
+    left: 110px;
+}

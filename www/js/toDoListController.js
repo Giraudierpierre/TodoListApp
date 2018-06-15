@@ -16,4 +16,18 @@ angular.module('starter.controllers')
                 $scope.tasks = 'Erreur';
             });
         };
+
+        $scope.getCompletedTasks = function() {
+
+            var promise = todoList.getCompletedTasks();
+
+            promise.then(function(data) {
+                //Success
+                $scope.completedTasks = data;
+                $scope.completedTasksNumber = data.length;
+            }, function() {
+                //Error
+                $scope.completedTasks = 'Erreur';
+            });
+        };
     });

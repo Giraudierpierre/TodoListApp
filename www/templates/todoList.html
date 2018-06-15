@@ -1,4 +1,4 @@
-<ion-view view-title="Tâches" ng-init="getTasks()">
+<ion-view view-title="Tâches" ng-init="getTasks(); getCompletedTasks();">
     <ion-content>
         <ion-list ng-controller="ToDoListCtrl" can-swipe="listCanSwipe">
             <ion-item ng-repeat="task in tasks">
@@ -10,7 +10,25 @@
                         <option>Red</option>
                     </select>
                 </label>
-                <ion-option-button class="button-positive" ng-click="share(item)"> Vers terminé </ion-option-button>
+                <ion-option-button class="button-positive" ng-click="share(item)"> Vers terminé</ion-option-button>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <span class="badge badge-stable">{{completedTasksNumber}}</span>
+                Terminées
+            </ion-item>
+            <ion-item ng-repeat="task in completedTasks">
+                <label class="item-input item-select">
+                    <input type="text" value="{{task.content}}"></input>
+                    <select>
+                        <option>Blue</option>
+                        <option selected>Green</option>
+                        <option>Red</option>
+                    </select>
+                </label>
+                <ion-option-button class="button-positive" ng-click="share(item)"> Vers liste</ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>
