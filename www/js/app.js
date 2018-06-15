@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 url: '/playlists',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/playlists.html',
+                        templateUrl: 'templates/todoList.html',
                         controller: 'PlaylistsCtrl'
                     }
                 }
