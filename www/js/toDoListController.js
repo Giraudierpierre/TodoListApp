@@ -3,8 +3,6 @@ angular.module('starter.controllers')
     .controller('ToDoListCtrl', function($scope, todoList) {
 
         $scope.listCanSwipe = true;
-
-
         //Get all tasks
         $scope.getTasks = function() {
 
@@ -24,7 +22,6 @@ angular.module('starter.controllers')
 
             promise.then(function(data) {
                 //Success
-                console.log(data);
                 $scope.completedTasks = data;
                 $scope.completedTasksNumber = data.length;
             }, function() {
