@@ -1,11 +1,13 @@
 <div class="item-content">
     <form>
-        <label class="item-input item-select">
-            <input type="text"></input>
-            <select ng-options="tag.id as tag.priority for tag in tags" ng-model="tagsSelect" ng-change="postSelectedTag(tagsSelect)"></select>
+        <label class="item-input">
+            <input placeholder="Tâche" type="text" value="{{task.id}}" ng-change="getTaskContent(lastId, task.content)" ng-model="task.content"/>
+            <span class="item-note">
+                <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
+            </span>
         </label>
     </form>
 </div>
 <div class="item-options invisible">
-    <ion-option-button class="button button-positive" ng-click="share(item)">Vers terminé</ion-option-button>
+    <ion-option-button class="button-positive" ng-click="moveTask(task.id, 1)">Vers terminé</ion-option-button>
 </div>

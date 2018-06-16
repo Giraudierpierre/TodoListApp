@@ -1,7 +1,7 @@
-<ion-view view-title="Tâches" ng-init="getTasks(); getCompletedTasks(); getTags();">
+<ion-view view-title="Tâches" ng-init="getTasks(); getCompletedTasks();">
     <ion-content>
-        <ion-list ng-controller="ToDoListCtrl" can-swipe="listCanSwipe" id="taskList">
-            <a class="item-icon-right" ng-click="createTask();">
+        <ion-list can-swipe="listCanSwipe" id="taskList">
+            <a class="item-icon-right" ng-click="postTask();">
                 <ion-item class="item-positive">
                     Notes
                     <i class="icon ion-ios-plus"></i>
@@ -9,12 +9,14 @@
             </a>
             <ion-item ng-repeat="task in tasks">
                 <form>
-                    <label class="item-input item-select">
-                        <input type="text" value="{{task.content}}"></input>
-                        <select ng-required="true" ng-options="tag.id as tag.priority for tag in tags" ng-model="tagsSelect" ng-change="postSelectedTag(tagsSelect)"></select>
+                    <label class="item-input">
+                        <input placeholder="Tâche" type="text" value="{{task.content}}" ng-change="getTaskContent(task.id, task.content)" ng-model="task.content"/>
+                        <span class="item-note">
+                            <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
+                        </span>
                     </label>
                 </form>
-                <ion-option-button class="button-positive" ng-click="share(item)">Vers terminé</ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="moveTask(task.id, 1)">Vers terminé</ion-option-button>
             </ion-item>
         </ion-list>
 
@@ -27,12 +29,14 @@
             </a>
             <ion-item ng-repeat="task in completedTasks">
                 <form>
-                    <label class="item-input item-select">
-                        <input type="text" value="{{task.content}}"></input>
-                        <select ng-options="tag.id as tag.priority for tag in tags" ng-model="tagsSelect" ng-change="postSelectedTag(tagsSelect)"></select>
+                    <label class="item-input">
+                        <input placeholder="Tâche" type="text" value="{{task.content}}" ng-change="getTaskContent(task.id, task.content)" ng-model="task.content"/>
+                        <span class="item-note">
+                            <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
+                        </span>
                     </label>
                 </form>
-                <ion-option-button class="button-positive" ng-click="share(item)">Vers liste</ion-option-button>
+                <ion-option-button class="button-positive" ng-click="moveTask(task.id, 0)">Vers liste</ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>

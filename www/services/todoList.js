@@ -55,20 +55,23 @@ angular.module('starter.controllers')
             return deferred.promise;
         };
 
-        scope.getTags = function() {
+        scope.putTask = function(task) {
             var deferred = $q.defer();
 
-            //Request get all tasks
-            $http.get(url + '/tags')
-                .success(function(data) {
+            var data = {
+                'content': task.content,
+                'tag': task.tag,
+                'completed': task.destination
+            };
 
-                    //If valid datas
+            var taskId = task.taskId;
+
+            $http.put(url + '/task/' + taskId, data, {headers: {'Content-Type': 'application/json'}})
+                .success(function (data) {
                     if (data) deferred.resolve(data);
 
-                    //If no valid datas
                     else deferred.reject(data);
                 });
-            //Send promise to controller
             return deferred.promise;
         };
     });

@@ -7,3 +7,7 @@
 a {
     text-decoration: none;
 }
+
+.item-note input {
+    text-align: right;
+}
