@@ -74,4 +74,18 @@ angular.module('starter.controllers')
                 });
             return deferred.promise;
         };
+
+        scope.deleteTask = function(task) {
+            var deferred = $q.defer();
+
+            var taskId = task.taskId;
+
+            $http.delete(url + '/task/' + taskId, {headers: {'Content-Type': 'application/json'}})
+                .success(function (data) {
+                    if (data) deferred.resolve(data);
+
+                    else deferred.reject(data);
+                });
+            return deferred.promise;
+        };
     });

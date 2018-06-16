@@ -69,6 +69,7 @@ angular.module('starter.controllers')
         };
 
         $scope.moveTask = function(taskId, destination) {
+
             var data = {
                 'taskId': taskId,
                 'destination': destination
@@ -85,5 +86,23 @@ angular.module('starter.controllers')
                 //Error
             });
         };
+
+        $scope.deleteTask = function(taskId) {
+
+            var data = {
+                'taskId': taskId
+            };
+
+            var promise = todoList.deleteTask(data);
+
+            promise.then(function() {
+
+                $scope.getCompletedTasks();
+                $scope.getTasks();
+
+            }, function() {
+                //Error
+            });
+        }
 
     });
