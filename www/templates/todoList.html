@@ -20,14 +20,14 @@
             </ion-item>
         </ion-list>
 
-        <ion-list>
-            <a class="item-icon-right" href="#">
+        <ion-list ng-click="showClosedList = !showClosedList">
+            <a class="item-icon-right">
                 <ion-item class="item-balanced">
                     <span class="badge badge-stable">{{completedTasksNumber}}</span>
                     Terminées
                 </ion-item>
             </a>
-            <ion-item ng-repeat="task in completedTasks">
+            <ion-item ng-repeat="task in completedTasks" class="closedListItems" ng-hide="showClosedList">
                 <form>
                     <label class="item-input">
                         <input placeholder="Tâche" type="text" value="{{task.content}}" ng-change="getTaskContent(task.id, task.content)" ng-model="task.content"/>

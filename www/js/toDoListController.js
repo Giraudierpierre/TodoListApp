@@ -62,7 +62,6 @@ angular.module('starter.controllers')
             var promise = todoList.putTask(data);
 
             promise.then(function() {
-                // $scope.getTasks();
 
             }, function() {
                 //Error
@@ -85,5 +84,6 @@ angular.module('starter.controllers')
             }, function() {
                 //Error
             });
-        }
+        };
+
     });
