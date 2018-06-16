@@ -52,4 +52,16 @@ angular.module('starter.controllers')
                 //Error
             });
         }
+
+        $scope.getTags = function() {
+
+            var promise = todoList.getTags();
+
+            promise.then(function(data) {
+                //Success
+                $scope.tags = data;
+            }, function() {
+                //Error
+            });
+        };
     });

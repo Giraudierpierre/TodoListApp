@@ -1,12 +1,10 @@
 <div class="item-content">
-    <label class="item-input item-select">
-        <input type="text"></input>
-        <select>
-            <option>Blue</option>
-            <option selected>Green</option>
-            <option>Red</option>
-        </select>
-    </label>
+    <form>
+        <label class="item-input item-select">
+            <input type="text"></input>
+            <select ng-options="tag.id as tag.priority for tag in tags" ng-model="tagsSelect" ng-change="postSelectedTag(tagsSelect)"></select>
+        </label>
+    </form>
 </div>
 <div class="item-options invisible">
     <ion-option-button class="button button-positive" ng-click="share(item)">Vers terminé</ion-option-button>
