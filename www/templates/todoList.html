@@ -1,10 +1,10 @@
-<ion-view view-title="Tâches" ng-init="getTasks(); getCompletedTasks();">
+<ion-view view-title="ToDoList" ng-init="getCompletedTasks(); getTasks();">
     <ion-content>
         <ion-list can-swipe="listCanSwipe" id="taskList">
             <a class="item-icon-right" ng-click="postTask();">
                 <ion-item class="item-positive">
                     Notes
-                    <i class="icon ion-ios-plus"></i>
+                    <i class="icon ion-ios-plus-empty"></i>
                 </ion-item>
             </a>
             <ion-item ng-repeat="task in tasks">
@@ -21,8 +21,8 @@
             </ion-item>
         </ion-list>
 
-        <ion-list ng-click="showClosedList = !showClosedList">
-            <a class="item-icon-right">
+        <ion-list>
+            <a class="item-icon-right" ng-click="showClosedList = !showClosedList;">
                 <ion-item class="item-balanced">
                     <span class="badge badge-stable">{{completedTasksNumber}}</span>
                     Terminées
@@ -37,7 +37,7 @@
                         </span>
                     </label>
                 </form>
-                <ion-option-button class="button-assertive" ng-click="deleteTask(task.id)">Supprimer</ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="deleteTask(task.id);">Supprimer</ion-option-button>
                 <ion-option-button class="button-positive" ng-click="moveTask(task.id, 0)">Vers liste</ion-option-button>
             </ion-item>
         </ion-list>

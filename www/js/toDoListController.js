@@ -1,6 +1,20 @@
 angular.module('starter.controllers')
 
-    .controller('ToDoListCtrl', function($scope, todoList) {
+    .controller('ToDoListCtrl', function($scope, todoList, $timeout) {
+
+        $scope.getCompletedTasks = function() {
+
+            var promise = todoList.getCompletedTasks();
+
+            promise.then(function(data) {
+                //Success
+                $scope.completedTasks = data;
+                $scope.completedTasksNumber = data.length;
+            }, function() {
+                //Error
+            });
+        };
+
 
         $scope.listCanSwipe = true;
         //Get all tasks
@@ -11,19 +25,6 @@ angular.module('starter.controllers')
             promise.then(function(data) {
                 //Success
                 $scope.tasks = data;
-            }, function() {
-                //Error
-            });
-        };
-
-        $scope.getCompletedTasks = function() {
-
-            var promise = todoList.getCompletedTasks();
-
-            promise.then(function(data) {
-                //Success
-                $scope.completedTasks = data;
-                $scope.completedTasksNumber = data.length;
             }, function() {
                 //Error
             });
@@ -81,6 +82,7 @@ angular.module('starter.controllers')
 
                 $scope.getCompletedTasks();
                 $scope.getTasks();
+                $scope.showClosedList = true;
 
             }, function() {
                 //Error
@@ -103,6 +105,6 @@ angular.module('starter.controllers')
             }, function() {
                 //Error
             });
-        }
+        };
 
     });

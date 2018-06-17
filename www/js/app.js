@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: 'templates/menu.html',
+                templateUrl: 'templates/header.html',
                 controller: 'AppCtrl'
             })
             .state('app.todoList', {
@@ -37,14 +37,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                     'menuContent': {
                         templateUrl: 'templates/todoList.html',
                         controller: 'ToDoListCtrl'
-                    }
-                }
-            })
-            .state('app.task', {
-                url: '/todoList/:taskId',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/task.html'
                     }
                 }
             });
