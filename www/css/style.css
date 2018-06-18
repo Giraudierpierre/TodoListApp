@@ -8,10 +8,6 @@ a {
     text-decoration: none;
 }
 
-.item-input.priority-input input {
-    text-align: right;
-}
-
 .icon.ion-ios-arrow-right, .icon.ion-ios-arrow-down, .icon.ion-ios-plus-empty {
     font-size: 30px;
 }
@@ -26,4 +22,12 @@ a {
 
 .item-input.content-input {
     width: 80%;
+}
+
+.item-input.priority-input {
+    width: 20%;
+}
+
+.item-input.priority-input input {
+    text-align: right;
 }
