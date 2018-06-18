@@ -8,7 +8,7 @@ a {
     text-decoration: none;
 }
 
-.item-note input {
+.item-input.priority-input input {
     text-align: right;
 }
 
@@ -18,4 +18,12 @@ a {
 
 .item-note-closedList {
     color: #fff;
+}
+
+.item-input{
+    display: inline-block;
+}
+
+.item-input.content-input {
+    width: 80%;
 }

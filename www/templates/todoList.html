@@ -9,11 +9,11 @@
             </a>
             <ion-item ng-repeat="task in tasks">
                 <form>
-                    <label class="item-input">
+                    <label class="item-input content-input">
                         <input placeholder="Tâche" type="text" value="{{task.content}}" ng-change="getTaskContent(task.id, task.content)" ng-model="task.content"/>
-                        <span class="item-note">
-                            <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
-                        </span>
+                    </label>
+                    <label class="item-input priority-input">
+                        <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
                     </label>
                 </form>
                 <ion-option-button class="button-assertive" ng-click="deleteTask(task.id)">Supprimer</ion-option-button>
@@ -30,11 +30,11 @@
             </a>
             <ion-item ng-repeat="task in completedTasks" class="closedListItems" ng-show="showClosedList">
                 <form>
-                    <label class="item-input">
+                    <label class="item-input content-input">
                         <input placeholder="Tâche" type="text" value="{{task.content}}" ng-change="getTaskContent(task.id, task.content)" ng-model="task.content"/>
-                        <span class="item-note">
-                            <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
-                        </span>
+                    </label>
+                    <label class="item-input priority-input">
+                        <input placeholder="Priorité" type="text" value="{{task.tag}}" ng-change="getTaskTag(task.id, task.tag)" ng-model="task.tag"/>
                     </label>
                 </form>
                 <ion-option-button class="button-assertive" ng-click="deleteTask(task.id);">Supprimer</ion-option-button>
